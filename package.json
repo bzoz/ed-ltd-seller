@@ -1,0 +1,15 @@
+{
+    "name": "eddn",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "zeromq": "^5.2.0",
+        "zlib": "^1.0.5"
+    }
+}
