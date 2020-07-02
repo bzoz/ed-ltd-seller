@@ -20,7 +20,12 @@ This is more a POC than a real app, it will also print all unrecognized EDDN mes
 Uses Node.js
 
 ```console
+git clone https://github.com/bzoz/ed-ltd-seller
+cd ed-ltd-seller
 npm install
+curl https://www.edsm.net/dump/systemsWithCoordinates.json.gz -o database/systemsWithCoordinates.json.gz
+curl https://www.edsm.net/dump/stations.json.gz -o database/stations.json.gz
+npm run initdb
 npm start
 ```
 
