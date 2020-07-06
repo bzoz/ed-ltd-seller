@@ -17,11 +17,15 @@ This is more a POC than a real app, it will also print all unrecognized EDDN mes
 
 
 ## Running
-Uses Node.js
+Uses Node.js v12.x
 
 ```console
 npm install
 npm start
 ```
 
-For Windows VS2015 (this exact version) needs to be installed for zeromqjs to build.
+Optionally call:
+```console
+npm run download-db
+```
+This will download star systems data, so you won't get those `NaN ly`.
