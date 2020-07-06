@@ -1,0 +1,20 @@
+{
+    "name": "eddn",
+    "version": "0.1.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "build-db": "node download-systems-data.js",
+        "start": "node app.js"
+    },
+    "author": "",
+    "license": "MIT",
+    "dependencies": {
+        "ioredis": "^4.17.3",
+        "level": "^6.0.1",
+        "redis": "^3.0.2",
+        "request": "^2.88.2",
+        "zeromq": "^5.2.0",
+        "zlib": "^1.0.5"
+    }
+}
