@@ -9,8 +9,8 @@ sock.connect('tcp://eddn.edcd.io:9500');
 sock.subscribe('');
 
 filter.setRefSystem('Col 285 Sector CC-K a38-2');
-//filter.setDistanceLimit(300)
-//filter.setMinDemand(512);
+filter.setDistanceLimit(30)
+filter.setMinDemand(200);
 filter.setCommodityFilter(['LOWTEMPERATUREDIAMOND']);
 
 
@@ -49,6 +49,6 @@ sock.on('message', async (topic) => {
     }
   } 
   if (needsUpdate) {
-    printBest.printBestSell('LOWTEMPERATUREDIAMOND', 10);
+    printBest.printBestSell('LOWTEMPERATUREDIAMOND', process.stdout.rows - 5);
   }
 });
