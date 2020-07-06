@@ -15,8 +15,8 @@ The tool will not connect to any other data service, you will only get prices re
 ## Running
 
 You will need:
- - [Node.js v12.x](https://nodejs.org/dist/v12.18.2/node-v12.18.2-x64.msi) - the app runtime
- - [Memurai](https://www.memurai.com/get-memurai) - Redsis-compatible datastore, used for the database
+ - [Node.js v12.x](https://nodejs.org) - the app runtime. Get the LTS version.
+ - [Memurai](https://www.memurai.com/get-memurai) - Redsis-compatible datastore, used for the database. Get the free Developer Edition.
  - [Thie app itself](https://github.com/bzoz/ed-ltd-seller/archive/main.zip)
 
 To run the app:
