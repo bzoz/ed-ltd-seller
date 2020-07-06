@@ -10,7 +10,7 @@ You can find those values hardcoded in the `app.js` file.
 
 Basically, you will get the most up-to-date data about the market.
 
-The tool will not connect to any other data service, you will only get prices reported after the app was started. This also includes star system - until the app sees the location of the given star system in the datastream, it will produce `NaN LY` distances.
+The tool will not connect to any other data service, you will only get prices reported after the app was started. This also includes star system - until the app sees the location of the given star system in the data stream, it will produce `NaN LY` distances.
 
 ## Running
 
@@ -22,8 +22,8 @@ You will need:
 To run the app:
  - Install both Memurai and Node.js
  - Extract the ZIP-file with the app to any folder
- - Run `init.cmd` - it will install dependancied for the app and will download the starsystem data from [EDSM](https://www.edsm.net/). The download is about 2GB, and it will use about 4GB of disk space. Alternatively, run `init-nodb.cmd`. It will not download any star data, but will only rely on the data from the EDDN messages. In practice this means it will take the app some time before it will start displaying distances to the selling carriers. 
- - Run `run.cmd` - this will start the app. It will take some time before first info about carriers buyin LTD arrives, be paintent.
+ - Run `init.cmd` - it will install dependencies for the app and will download the star system data from [EDSM](https://www.edsm.net/). The download is about 2GB, and it will use about 4GB of disk space. Alternatively, run `init-nodb.cmd`. It will not download any star data, but will only rely on the data from the EDDN messages. In practice this means it will take the app some time before it will start displaying distances to the selling carriers. 
+ - Run `run.cmd` - this will start the app. It will take some time before first info about carriers buying LTD arrives, be patient.
  
  
 ## Running - command line
