@@ -35,6 +35,8 @@ sock.on('message', async (topic) => {
       }
       const updated = await Promise.all(priceUpdatedPromise)
       needsUpdate |= updated.includes(true)
+    } else {
+      needsUpdate |= await handlers.dropIfOutOfRage(message.marketId, message.systemName)
     }
   } else if (schema.startsWith('https://eddn.edcd.io/schemas/journal/1')) {
     await handlers.starsystem(message.StarSystem, message.StarPos[0], message.StarPos[1], message.StarPos[2])
@@ -45,7 +47,7 @@ sock.on('message', async (topic) => {
       await handlers.station(message.MarketID, message.StationName, message.StarSystem, message.DistFromStarLS, message.StationType)
     }
     if (message.event === 'CarrierJump') {
-      needsUpdate |= await handlers.carrierJump(message.marketId, message.StationName, message.StarSystem);
+      needsUpdate |= await handlers.dropIfOutOfRage(message.marketId, message.StationName, message.StarSystem);
     }
   } 
   if (needsUpdate) {
