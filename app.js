@@ -8,10 +8,31 @@ const sock = zmq.socket('sub');
 sock.connect('tcp://eddn.edcd.io:9500');
 sock.subscribe('');
 
-filter.setRefCoords('Col 285 Sector CC-K a38-2', { x: -237.125, y: -38.84375, z: 61.34375});
+const argv = require('yargs').argv;
+
+if (argv.system) {
+  filter.setRefSystem(argv.system)
+}
+if (argv.coords) {
+  const coords = argv.coords.split(',')
+  filter.setRefCoords('ref', {x:coords[0], y:coords[1], z:coords[2]})
+}
+if (argv.distance) {
+  filter.setDistanceLimit(argv.distance)
+}
+if (argv.demand) {
+  filter.setMinDemand(argv.demand)
+}
+if (argv.supply) {
+  filter.setMinSupply(argv.supply)
+}
+if (argv.commodity) {
+  filter.setCommodityFilter(argv.commodity)
+}
+/*filter.setRefCoords('Col 285 Sector CC-K a38-2', { x: -237.125, y: -38.84375, z: 61.34375});
 filter.setDistanceLimit(30)
 filter.setMinDemand(200);
-filter.setCommodityFilter(['LOWTEMPERATUREDIAMOND']);
+filter.setCommodityFilter(['LOWTEMPERATUREDIAMOND']);*/
 
 
 sock.on('message', async (topic) => {
