@@ -72,6 +72,7 @@ sock.on('message', async (topic) => {
     }
   } 
   if (needsUpdate) {
-    printBest.printBestSell('LOWTEMPERATUREDIAMOND', process.stdout.rows - 5);
+    //printBest.printBestSell('LOWTEMPERATUREDIAMOND', process.stdout.rows - 5);
+    printBest.printBestTransfer(process.stdout.rows - 5)
   }
 });
