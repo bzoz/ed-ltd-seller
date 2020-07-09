@@ -29,6 +29,23 @@ if (argv.supply) {
 if (argv.commodity) {
   filter.setCommodityFilter(argv.commodity)
 }
+if (argv.bestbuy)
+  printType = 'best-buy'
+if (argv.bestsell)
+  printType = 'best-sell'
+if (argv.besttransfer)
+  printType = 'best-transfer'
+
+if (!argv.bestbuy && !argv.bestsell && !argv.besttransfer) {
+  console.log('What to do? Please use either --bestbuy --bestsell or --besttransfer')
+  process.exit(-1)
+}
+if ((argv.bestbuy || argv.bestsell) && !argv.commodity) {
+  console.log('Select commodity to track with --commodity, e.g. --commodity lowtemperaturediamond')
+  process.exit(-1)
+}
+
+
 /*filter.setRefCoords('Col 285 Sector CC-K a38-2', { x: -237.125, y: -38.84375, z: 61.34375});
 filter.setDistanceLimit(30)
 filter.setMinDemand(200);
@@ -72,7 +89,13 @@ sock.on('message', async (topic) => {
     }
   } 
   if (needsUpdate) {
-    //printBest.printBestSell('LOWTEMPERATUREDIAMOND', process.stdout.rows - 5);
-    printBest.printBestTransfer(process.stdout.rows - 5)
+    let count = 0
+    if (argv.bestbuy) ++count
+    if (argv.bestsell) ++count
+    if (argv.besttransfer) ++count
+    const lines = Math.floor((process.stdout.rows - 2 - count*5) / count)
+    if (argv.bestbuy) await printBest.printBestBuy(argv.commodity.toUpperCase(), lines)
+    if (argv.bestsell) await printBest.printBestSell(argv.commodity.toUpperCase(), lines)
+    if (argv.besttransfer) await printBest.printBestTransfer(lines)
   }
 });
