@@ -3,7 +3,7 @@ Live tracker of buy and sell prices accros the Elite Dangerous universe
 ![app screenshot](https://github.com/bzoz/ed-ltd-seller/blob/main/screenshots/all.png?raw=true)
 
 This app connects to [EDDN](https://github.com/EDSM-NET/EDDN/wiki) and listens for commodities market updates. It can:
- - print highes sell price (and location) of the given commodity
+ - print highest sell price (and location) of the given commodity
  - lowest buying price
  - it can also find in-system trade routes, like a carrier selling LTD at a lower price than a station next to it is buying
  
@@ -18,12 +18,12 @@ The tool will not connect to any other data service, you will only get prices re
 You will need:
  - [Node.js v12.x](https://nodejs.org) - the app runtime. Get the LTS version.
  - [Memurai](https://www.memurai.com/get-memurai) - Redis-compatible datastore, used for the database. Get the free Developer Edition.
- - [Thie app itself](https://github.com/bzoz/ed-ltd-seller/archive/v0.0.1.zip)
+ - [Thie app itself](https://github.com/bzoz/ed-ltd-seller/archive/v0.1.0.zip)
 
 To run the app:
  - Install both Memurai and Node.js
  - Extract the ZIP-file with the app to any folder
- - Run `init.cmd` - it will install dependencies for the app and will download the star system data from [EDSM](https://www.edsm.net/). The download is about 2GB, and it will use about 4GB of disk space. Alternatively, run `init-nodb.cmd`. It will not download any star data, but will only rely on the data from the EDDN messages. In practice this means it will take the app some time before it will start displaying distances to the selling carriers. 
+ - Run `init.cmd` - it will install dependencies for the app and will download the star system data from [EDSM](https://www.edsm.net/). The download is about 2GB, and it will use about 4GB of disk space. Alternatively, run `init-nodb.cmd`. It will not download any star data but will only rely on the data from the EDDN messages. In practice this means it will take the app some time before it will start displaying distances to the selling carriers. 
 
 ## Helper scripts
 
@@ -64,7 +64,7 @@ node download-systems-data.js
 - `--distance 30` -Set maximum distance to 30 LY.
 - `--demand 200` - Set mimimum demand to 200.
 - `--supply 300` - Set miminum supply to 300.
-- `--commodity lowtemperaturediamond` - Show only LTD prices. You can use any commodity name, just remove spaces or hypens.
+- `--commodity lowtemperaturediamond` - Show only LTD prices. You can use any commodity name, just remove spaces or hyphens.
 - `--bestbuy` - Show stations with lowest buy prices.
 - `--bestsell` - Show stations with highest buy prices.
 - `--besttransfer` - Show systems with highest profit for in-system trading.
