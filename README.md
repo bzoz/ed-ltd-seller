@@ -75,4 +75,6 @@ For `--bestbuy` and --`bestsell` you need to use `--commodity`. You also must sp
 Open an issue if you find any bugs.
 
 Known bugs:
- - if the station is in the same system as reference system, `-` will be displayed as distance
+ - If the station is in the same system as reference system, `-` will be displayed as distance
+ - "Distance" should be removed from the table if no reference system is set
+ - The way we are querying coords from download star system data set should be improved
