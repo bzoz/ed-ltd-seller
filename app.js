@@ -1,6 +1,7 @@
 const handlers = require('./lib/handle_data')
 const filter = require('./lib/data_filter')
 const printBest = require('./lib/print_best')
+const stats = require('./lib/packets_stats')
 
 const zlib = require('zlib');
 const zmq = require('zeromq');
@@ -51,8 +52,9 @@ filter.setDistanceLimit(30)
 filter.setMinDemand(200);
 filter.setCommodityFilter(['LOWTEMPERATUREDIAMOND']);*/
 
-
+let firstLoop = true
 sock.on('message', async (topic) => {
+  stats.packet()
   const payload = JSON.parse(zlib.inflateSync(topic));
   const schema = payload['$schemaRef'];
   const header = payload.header;
@@ -88,7 +90,8 @@ sock.on('message', async (topic) => {
       needsUpdate |= await handlers.dropIfOutOfRage(message.marketId, message.StationName, message.StarSystem);
     }
   } 
-  if (needsUpdate) {
+  if (needsUpdate || firstLoop) {
+    firstLoop = false
     let count = 0
     if (argv.bestbuy) ++count
     if (argv.bestsell) ++count
@@ -98,5 +101,6 @@ sock.on('message', async (topic) => {
     if (argv.bestbuy) await printBest.printBestBuy(argv.commodity.toUpperCase(), lines)
     if (argv.bestsell) await printBest.printBestSell(argv.commodity.toUpperCase(), lines)
     if (argv.besttransfer) await printBest.printBestTransfer(lines)
+    printBest.logStats()
   }
 });
