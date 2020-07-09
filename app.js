@@ -93,7 +93,8 @@ sock.on('message', async (topic) => {
     if (argv.bestbuy) ++count
     if (argv.bestsell) ++count
     if (argv.besttransfer) ++count
-    const lines = Math.floor((process.stdout.rows - 2 - count*5) / count)
+    const lines = Math.floor((process.stdout.rows - 3 - count*5) / count)
+    console.clear()
     if (argv.bestbuy) await printBest.printBestBuy(argv.commodity.toUpperCase(), lines)
     if (argv.bestsell) await printBest.printBestSell(argv.commodity.toUpperCase(), lines)
     if (argv.besttransfer) await printBest.printBestTransfer(lines)
