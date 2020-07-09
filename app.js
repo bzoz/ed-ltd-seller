@@ -53,6 +53,7 @@ filter.setMinDemand(200);
 filter.setCommodityFilter(['LOWTEMPERATUREDIAMOND']);*/
 
 let firstLoop = true
+setInterval(()=>{firstLoop = true}, 2500)
 sock.on('message', async (topic) => {
   stats.packet()
   const payload = JSON.parse(zlib.inflateSync(topic));
