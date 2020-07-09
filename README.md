@@ -38,7 +38,7 @@ Show best LTD buying carriers within 30ly from Kirre's Icebox with at least 200 
 Show best LTD buying carriers within 30ly from HIP 4351 with at least 200 demand
 
 ### `run_buy_ltd.cmd`
-![run_buy_ltd.cmd screenshot](https://github.com/bzoz/ed-ltd-seller/blob/main/screenshots/run_buy_ltd.png?raw=true)  
+![run_buy_ltd.cmd screenshot](https://github.com/bzoz/ed-ltd-seller/blob/main/screenshots/run_buy_lyd.png?raw=true)  
 Show best LTD selling stations anywhere in the galaxy
 
 ### `run_tritium_trader.cmd`
